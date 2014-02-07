@@ -5,7 +5,21 @@
 class systemd(
 ){
 
-  $system_directory = '/usr/lib/systemd/system'
+  case $::operatingsystem {
+    'RedHat': {
+      $system_directory = '/usr/lib/systemd/system'
+
+      if $::operatingsystemmajorelease < 7 {
+        fail('RedHat operating systems must be at least v7')
+      }
+
+    }
+
+    default: {
+      fail("${::operatingsystem} is not supported")
+    }
+  }
+
 
   file{$system_directory:
     ensure => directory,

@@ -3,18 +3,18 @@
 # =====================
 # Manage a systemd service file
 define systemd::service_file(
+  $service      = $title,
+  $wants        = 'basic.target',
+  $after        = 'basic.target network.target',
   $execstart    = absent,
   $execstartpre = absent,
   $execstop     = absent,
   $execstoppre  = absent,
   $execreload   = absent,
-  $service      = $title,
   $description  = absent,
   $type         = absent,
-  $pidfile = absent,
-  $timeout = absent,
-  $wants = 'basic.target',
-  $after = 'basic.target network.target'
+  $pidfile      = absent,
+  $timeout      = absent,
 ){
 
   $service_file_path = "${systemd::system_directory}/${service}.service"

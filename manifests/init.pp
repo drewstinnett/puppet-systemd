@@ -9,7 +9,7 @@ class systemd(
     'RedHat': {
       $system_directory = '/usr/lib/systemd/system'
 
-      if $::operatingsystemmajorelease < 7 {
+      if versioncmp($::operatingsystemrelease, '7.0') < 0 {
         fail('RedHat operating systems must be at least v7')
       }
 
@@ -20,16 +20,13 @@ class systemd(
     }
   }
 
+  ensure_packages(['systemd'])
 
   file{$system_directory:
     ensure => directory,
     owner  => root,
     group  => root,
     mode   => '0644'
-  }
-
-  package{'systemd':
-    ensure => installed
   }
 
 }

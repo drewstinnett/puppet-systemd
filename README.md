@@ -16,7 +16,7 @@ Service File Configuration
       execstart    => "${splunk_bin} start ${license_nag}",
       execstartpre => "/usr/bin/chown -R ${user}:${group} ${install_dir}",
       execstop     => "${splunk_bin} stop",
-      execreload   => "${splunk_bin} restart ${license_nag}",
+      execreload   => "${splunk_bin} restart ${license_nag}"a
       timeout      => '350'
     }
 

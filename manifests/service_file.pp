@@ -4,24 +4,40 @@
 # Manage a systemd service file
 define systemd::service_file(
   $service      = $title,
-  $wants        = 'basic.target',
-  $after        = 'basic.target network.target',
+  $description  = absent,
+  $type         = absent,
+  $restart      = absent,
   $execstart    = absent,
   $execstartpre = absent,
   $execstop     = absent,
   $execstoppre  = absent,
   $execreload   = absent,
-  $description  = absent,
-  $type         = absent,
+  $wants        = 'basic.target',
+  $after        = 'basic.target network.target',
   $pidfile      = absent,
   $timeout      = absent,
 ){
 
-  $service_file_path = "${systemd::system_directory}/${service}.service"
-
-  if $execstart == 'absent' {
-    fail('Be sure to include the command to start the service (execstart)')
+  ## Do some validation
+  $valid_types = ['simple', 'forking', 'oneshot', 'dbus', 'notify', 'idle']
+  unless $type in $valid_types {
+    fail('Unknown type, see docs for usage')
   }
+
+  $valid_restarts = ['no', 'on-success', 'on-failure', 'on-watchdog',
+                      'on-abort', 'always', absent]
+  unless $restart in $valid_restarts {
+    fail('Unknown restart, see docs for usage')
+  }
+
+  $types_requiring_execstart = ['simple', 'forking']
+  if $type in $types_requiring_execstart {
+    if $execstart == absent {
+      fail("${type} requires execstart to be set")
+    }
+  }
+
+  $service_file_path = "${systemd::system_directory}/${service}.service"
 
   exec{'systemctl-daemon-reload':
     command     => '/bin/systemctl daemon-reload',

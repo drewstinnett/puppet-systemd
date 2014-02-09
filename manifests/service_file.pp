@@ -51,21 +51,21 @@ define systemd::service_file(
     require => File[$systemd::system_directory]
   }
 
-  systemd::set_service_value{"${service}-description":
+  systemd::set_unit{"${service}-description":
     path    => $service_file_path,
     section => 'Unit',
     setting => 'Description',
     value   => $description
   }
 
-  systemd::set_service_value{"${service}-wants":
+  systemd::set_unit{"${service}-wants":
     path    => $service_file_path,
     section => 'Unit',
     setting => 'Wants',
     value   => $wants
   }
 
-  systemd::set_service_value{"${service}-after":
+  systemd::set_unit{"${service}-after":
     path    => $service_file_path,
     section => 'Unit',
     setting => 'After',

@@ -7,10 +7,17 @@ class systemd(
 
   case $::operatingsystem {
     'RedHat': {
-      $system_directory = '/etc/systemd/system'
 
       if versioncmp($::operatingsystemrelease, '7.0') < 0 {
         fail('RedHat operating systems must be at least v7')
+      }
+
+    }
+
+    'Fedora': {
+
+      if versioncmp($::operatingsystemrelease, '15.0') < 0 {
+        fail('Fedora operating systems must be at least v15')
       }
 
     }
@@ -20,6 +27,8 @@ class systemd(
     }
   }
 
+  $system_directory = '/etc/systemd/system'
+
   ensure_packages(['systemd'])
 
   file{$system_directory:
@@ -28,6 +37,11 @@ class systemd(
     group   => root,
     mode    => '0644',
     require => Package['systemd']
+  }
+
+  exec{'systemctl-daemon-reload':
+    command     => '/bin/systemctl daemon-reload',
+    refreshonly => true
   }
 
 }

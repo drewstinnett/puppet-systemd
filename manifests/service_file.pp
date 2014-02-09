@@ -20,6 +20,9 @@ define systemd::service_file(
 
   ## Do some validation
   $valid_types = ['simple', 'forking', 'oneshot', 'dbus', 'notify', 'idle']
+  if $type == absent {
+    fail('type is required')
+  }
   unless $type in $valid_types {
     fail('Unknown type, see docs for usage')
   }

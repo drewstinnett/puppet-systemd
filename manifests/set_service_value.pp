@@ -14,7 +14,7 @@ define systemd::set_service_value(
     default  => 'present'
   }
 
-  ini_setting{"${path}-${section}-${value}":
+  ini_setting{"${path}-${section}-${setting}-${value}":
     ensure  => $ensure,
     path    => $path,
     section => $section,

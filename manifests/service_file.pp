@@ -42,11 +42,6 @@ define systemd::service_file(
 
   $service_file_path = "${systemd::system_directory}/${service}.service"
 
-  exec{'systemctl-daemon-reload':
-    command     => '/bin/systemctl daemon-reload',
-    refreshonly => true
-  }
-
   file{"${service}.service":
     ensure  => file,
     path    => $service_file_path,

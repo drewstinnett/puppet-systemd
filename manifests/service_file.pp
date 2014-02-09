@@ -52,21 +52,10 @@ define systemd::service_file(
   }
 
   systemd::set_unit{"${service}-description":
-    path    => $service_file_path,
-    setting => 'Description',
-    value   => $description
-  }
-
-  systemd::set_unit{"${service}-wants":
-    path    => $service_file_path,
-    setting => 'Wants',
-    value   => $wants
-  }
-
-  systemd::set_unit{"${service}-after":
-    path    => $service_file_path,
-    setting => 'After',
-    value   => $after
+    path        => $service_file_path,
+    description => $description,
+    wants       => $wants,
+    after       => $after
   }
 
   systemd::set_service_value{"${service}-type":

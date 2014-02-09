@@ -3,8 +3,8 @@
 # =====================
 # Manage a systemd service file
 define systemd::set_unit(
-  $description   = absent,
   $path          = absent,
+  $description   = absent,
   $section_label = 'Unit',
   $wants         = 'basic.target',
   $after         = 'basic.target network.target',

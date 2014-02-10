@@ -20,7 +20,8 @@ define systemd::set_unit(
   $requisiteoverridable = undef,
   $wants                = 'basic.target',
   $bindsto              = undef,
-  $before               = undef,
+  ## before is reserved
+  $before_unit          = undef,
   $after                = 'basic.target network.target',
   $onfailure            = undef,
   $propagatesreloadto   = undef,

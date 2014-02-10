@@ -11,6 +11,7 @@ define systemd::set_service_value(
 
   $ensure = $value ? {
     'absent' => 'absent',
+    undef    => 'absent',
     default  => 'present'
   }
 

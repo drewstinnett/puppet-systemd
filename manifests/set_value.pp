@@ -1,8 +1,8 @@
 #
-# systemd::set_service_value
+# systemd::set_value
 # ==========================
 # Little helper script around ini_setting so the init.pp doesn't get so ugly
-define systemd::set_service_value(
+define systemd::set_value(
   $path,
   $section,
   $setting,

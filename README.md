@@ -9,15 +9,13 @@ be used to generate $name.service files on the filesystem.**
 
 Service File Configuration
 
-    systemd::service_file{'splunk':
-      description  => 'Splunk Log Management Service',
-      type         => 'forking',
-      pidfile      => "${install_dir}/var/run/splunk/splunkd.pid",
-      execstart    => "${splunk_bin} start ${license_nag}",
-      execstartpre => "/usr/bin/chown -R ${user}:${group} ${install_dir}",
-      execstop     => "${splunk_bin} stop",
-      execreload   => "${splunk_bin} restart ${license_nag}",
-      timeout      => '350'
+    include systemd
+    systemd::service_file{'test':
+      type    => 'oneshot',
+      start   => '/bin/test start',
+      stop    => '/bin/test stop',
+      restart => '/bin/test restart',
+      timeout => '50'
     }
 
 Once this is in place, the 'splunk' service can be controled through systemctl

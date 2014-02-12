@@ -18,28 +18,6 @@ define systemd::service_file(
   $timeout      = absent,
 ){
 
-  ## Do some validation
-  $valid_types = ['simple', 'forking', 'oneshot', 'dbus', 'notify', 'idle']
-  if $type == absent {
-    fail('type is required')
-  }
-  unless $type in $valid_types {
-    fail('Unknown type, see docs for usage')
-  }
-
-  $valid_restarts = ['no', 'on-success', 'on-failure', 'on-watchdog',
-                      'on-abort', 'always', absent]
-  unless $restart in $valid_restarts {
-    fail('Unknown restart, see docs for usage')
-  }
-
-  $types_requiring_execstart = ['simple', 'forking']
-  if $type in $types_requiring_execstart {
-    if $execstart == absent {
-      fail("${type} requires execstart to be set")
-    }
-  }
-
   $service_file_path = "${systemd::system_directory}/${service}.service"
 
   file{"${service}.service":

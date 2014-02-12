@@ -536,4 +536,194 @@ define systemd::set_exec(
     setting => 'WorkingDirectory',
     value   => $exec_workingdirectory
   }
+
+  systemd::set_value{"${path}-unit-busname":
+    path    => $path,
+    section => $label,
+    setting => 'BusName',
+    value   => $service_busname
+  }
+
+  systemd::set_value{"${path}-unit-execreload":
+    path    => $path,
+    section => $label,
+    setting => 'ExecReload',
+    value   => $service_execreload
+  }
+
+  systemd::set_value{"${path}-unit-execstart":
+    path    => $path,
+    section => $label,
+    setting => 'ExecStart',
+    value   => $service_execstart
+  }
+
+  systemd::set_value{"${path}-unit-execstartpost":
+    path    => $path,
+    section => $label,
+    setting => 'ExecStartPost',
+    value   => $service_execstartpost
+  }
+
+  systemd::set_value{"${path}-unit-execstartpre":
+    path    => $path,
+    section => $label,
+    setting => 'ExecStartPre',
+    value   => $service_execstartpre
+  }
+
+  systemd::set_value{"${path}-unit-execstop":
+    path    => $path,
+    section => $label,
+    setting => 'ExecStop',
+    value   => $service_execstop
+  }
+
+  systemd::set_value{"${path}-unit-execstoppost":
+    path    => $path,
+    section => $label,
+    setting => 'ExecStopPost',
+    value   => $service_execstoppost
+  }
+
+  systemd::set_value{"${path}-unit-guessmainpid":
+    path    => $path,
+    section => $label,
+    setting => 'GuessMainPID',
+    value   => $service_guessmainpid
+  }
+
+  systemd::set_value{"${path}-unit-nonblocking":
+    path    => $path,
+    section => $label,
+    setting => 'NonBlocking',
+    value   => $service_nonblocking
+  }
+
+  systemd::set_value{"${path}-unit-notifyaccess":
+    path    => $path,
+    section => $label,
+    setting => 'NotifyAccess',
+    value   => $service_notifyaccess
+  }
+
+  systemd::set_value{"${path}-unit-pidfile":
+    path    => $path,
+    section => $label,
+    setting => 'PIDFile',
+    value   => $service_pidfile
+  }
+
+  systemd::set_value{"${path}-unit-permissionsstartonly":
+    path    => $path,
+    section => $label,
+    setting => 'PermissionsStartOnly',
+    value   => $service_permissionsstartonly
+  }
+
+  systemd::set_value{"${path}-unit-remainafterexit":
+    path    => $path,
+    section => $label,
+    setting => 'RemainAfterExit',
+    value   => $service_remainafterexit
+  }
+
+  systemd::set_value{"${path}-unit-restart":
+    path    => $path,
+    section => $label,
+    setting => 'Restart',
+    value   => $service_restart
+  }
+
+  systemd::set_value{"${path}-unit-restartpreventexitstatus":
+    path    => $path,
+    section => $label,
+    setting => 'RestartPreventExitStatus',
+    value   => $service_restartpreventexitstatus
+  }
+
+  systemd::set_value{"${path}-unit-restartsec":
+    path    => $path,
+    section => $label,
+    setting => 'RestartSec',
+    value   => $service_restartsec
+  }
+
+  systemd::set_value{"${path}-unit-rootdirectorystartonly":
+    path    => $path,
+    section => $label,
+    setting => 'RootDirectoryStartOnly',
+    value   => $service_rootdirectorystartonly
+  }
+
+  systemd::set_value{"${path}-unit-sockets":
+    path    => $path,
+    section => $label,
+    setting => 'Sockets',
+    value   => $service_sockets
+  }
+
+  systemd::set_value{"${path}-unit-startlimitaction":
+    path    => $path,
+    section => $label,
+    setting => 'StartLimitAction',
+    value   => $service_startlimitaction
+  }
+
+  systemd::set_value{"${path}-unit-startlimitburst":
+    path    => $path,
+    section => $label,
+    setting => 'StartLimitBurst',
+    value   => $service_startlimitburst
+  }
+
+  systemd::set_value{"${path}-unit-startlimitinterval":
+    path    => $path,
+    section => $label,
+    setting => 'StartLimitInterval',
+    value   => $service_startlimitinterval
+  }
+
+  systemd::set_value{"${path}-unit-successexitstatus":
+    path    => $path,
+    section => $label,
+    setting => 'SuccessExitStatus',
+    value   => $service_successexitstatus
+  }
+
+  systemd::set_value{"${path}-unit-timeoutsec":
+    path    => $path,
+    section => $label,
+    setting => 'TimeoutSec',
+    value   => $service_timeoutsec
+  }
+
+  systemd::set_value{"${path}-unit-timeoutstartsec":
+    path    => $path,
+    section => $label,
+    setting => 'TimeoutStartSec',
+    value   => $service_timeoutstartsec
+  }
+
+  systemd::set_value{"${path}-unit-timeoutstopsec":
+    path    => $path,
+    section => $label,
+    setting => 'TimeoutStopSec',
+    value   => $service_timeoutstopsec
+  }
+
+  systemd::set_value{"${path}-unit-type":
+    path    => $path,
+    section => $label,
+    setting => 'Type',
+    value   => $service_type
+  }
+
+  systemd::set_value{"${path}-unit-watchdogsec":
+    path    => $path,
+    section => $label,
+    setting => 'WatchdogSec',
+    value   => $service_watchdogsec
+  }
+
 }

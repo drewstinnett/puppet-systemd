@@ -37,16 +37,16 @@ define systemd::service_file(
   }
 
   systemd::set_exec{"${service}-exec":
-    path              => $service_file_path,
-    label             => 'Service',
-    exec_type         => $type,
-    exec_pidfile      => $pidfile,
-    exec_execstart    => $execstart,
-    exec_execstartpre => $execstartpre,
-    exec_execstop     => $execstop,
-    exec_execstoppre  => $execstoppre,
-    exec_execreload   => $execreload,
-    exec_timeout      => $timeout,
+    path                 => $service_file_path,
+    label                => 'Service',
+    service_type         => $type,
+    service_pidfile      => $pidfile,
+    service_execstart    => $execstart,
+    service_execstartpre => $execstartpre,
+    service_execstop     => $execstop,
+    service_execstoppre  => $execstoppre,
+    service_execreload   => $execreload,
+    service_timeout      => $timeout,
   }
 
 }

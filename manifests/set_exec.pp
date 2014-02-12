@@ -21,6 +21,7 @@ define systemd::set_exec(
   $service_execstartpost            = undef,
   $service_execreload               = undef,
   $service_execstop                 = undef,
+  $service_execstoppre              = undef,
   $service_execstoppost             = undef,
   $service_restartsec               = undef,
   $service_timeoutstartsec          = undef,

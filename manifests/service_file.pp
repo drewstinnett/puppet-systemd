@@ -58,60 +58,17 @@ define systemd::service_file(
     after       => $after
   }
 
-  systemd::set_service_value{"${service}-type":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'Type',
-    value   => $type
-  }
-
-  systemd::set_service_value{"${service}-pidfile":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'PIDFile',
-    value   => $pidfile
-  }
-
-  systemd::set_service_value{"${service}-execstart":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'ExecStart',
-    value   => $execstart
-  }
-
-  systemd::set_service_value{"${service}-execstartpre":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'ExecStartPre',
-    value   => $execstartpre
-  }
-
-  systemd::set_service_value{"${service}-execstop":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'ExecStop',
-    value   => $execstop
-  }
-
-  systemd::set_service_value{"${service}-execstoppre":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'ExecStopPre',
-    value   => $execstoppre
-  }
-
-  systemd::set_service_value{"${service}-execreload":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'ExecReload',
-    value   => $execreload
-  }
-
-  systemd::set_service_value{"${service}-timeout":
-    path    => $service_file_path,
-    section => 'Service',
-    setting => 'Timeout',
-    value   => $timeout
+  systemd::set_exec{"${service}-exec":
+    path              => $service_file_path,
+    label             => 'Service',
+    exec_type         => $type,
+    exec_pidfile      => $pidfile,
+    exec_execstart    => $execstart,
+    exec_execstartpre => $execstartpre,
+    exec_execstop     => $execstop,
+    exec_execstoppre  => $execstoppre,
+    exec_execreload   => $execreload,
+    exec_timeout      => $timeout,
   }
 
 }

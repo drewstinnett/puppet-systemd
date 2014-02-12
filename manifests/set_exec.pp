@@ -1,6 +1,6 @@
 # systemd::set_exec
 # =====================
-# $section_label: should usually stay the default
+# $label: should usually stay the default
 # $path: This is the path to the file you're setting up
 #
 # All other options should be directly from the systemd.unit documentation
@@ -126,413 +126,414 @@ define systemd::set_exec(
 
   systemd::set_value{"${path}-unit-cpuaffinity":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'CPUAffinity',
     value   => $exec_cpuaffinity
   }
 
   systemd::set_value{"${path}-unit-cpuschedulingpolicy":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'CPUSchedulingPolicy',
     value   => $exec_cpuschedulingpolicy
   }
 
   systemd::set_value{"${path}-unit-cpuschedulingpriority":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'CPUSchedulingPriority',
     value   => $exec_cpuschedulingpriority
   }
 
   systemd::set_value{"${path}-unit-cpuschedulingresetonfork":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'CPUSchedulingResetOnFork',
     value   => $exec_cpuschedulingresetonfork
   }
 
   systemd::set_value{"${path}-unit-capabilities":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'Capabilities',
     value   => $exec_capabilities
   }
 
   systemd::set_value{"${path}-unit-capabilityboundingset":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'CapabilityBoundingSet',
     value   => $exec_capabilityboundingset
   }
 
   systemd::set_value{"${path}-unit-environment":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'Environment',
     value   => $exec_environment
   }
 
   systemd::set_value{"${path}-unit-environmentfile":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'EnvironmentFile',
     value   => $exec_environmentfile
   }
 
   systemd::set_value{"${path}-unit-group":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'Group',
     value   => $exec_group
   }
 
   systemd::set_value{"${path}-unit-ioschedulingclass":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'IOSchedulingClass',
     value   => $exec_ioschedulingclass
   }
 
   systemd::set_value{"${path}-unit-ioschedulingpriority":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'IOSchedulingPriority',
     value   => $exec_ioschedulingpriority
   }
 
   systemd::set_value{"${path}-unit-ignoresigpipe":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'IgnoreSIGPIPE',
     value   => $exec_ignoresigpipe
   }
 
   systemd::set_value{"${path}-unit-inaccessibledirectories":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'InaccessibleDirectories',
     value   => $exec_inaccessibledirectories
   }
 
   systemd::set_value{"${path}-unit-limitas":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitAS',
     value   => $exec_limitas
   }
 
   systemd::set_value{"${path}-unit-limitcore":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitCORE',
     value   => $exec_limitcore
   }
 
   systemd::set_value{"${path}-unit-limitcpu":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitCPU',
     value   => $exec_limitcpu
   }
 
   systemd::set_value{"${path}-unit-limitdata":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitDATA',
     value   => $exec_limitdata
   }
 
   systemd::set_value{"${path}-unit-limitfsize":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitFSIZE',
     value   => $exec_limitfsize
   }
 
   systemd::set_value{"${path}-unit-limitlocks":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitLOCKS',
     value   => $exec_limitlocks
   }
 
   systemd::set_value{"${path}-unit-limitmemlock,":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitMEMLOCK,',
     value   => $exec_limitmemlock,
   }
 
   systemd::set_value{"${path}-unit-limitmsgqueue":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitMSGQUEUE',
     value   => $exec_limitmsgqueue
   }
 
   systemd::set_value{"${path}-unit-limitnice":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitNICE',
     value   => $exec_limitnice
   }
 
   systemd::set_value{"${path}-unit-limitnofile":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitNOFILE',
     value   => $exec_limitnofile
   }
 
   systemd::set_value{"${path}-unit-limitnproc":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitNPROC',
     value   => $exec_limitnproc
   }
 
   systemd::set_value{"${path}-unit-limitrss":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitRSS',
     value   => $exec_limitrss
   }
 
   systemd::set_value{"${path}-unit-limitrtprio":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitRTPRIO',
     value   => $exec_limitrtprio
   }
 
   systemd::set_value{"${path}-unit-limitrttime":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitRTTIME',
     value   => $exec_limitrttime
   }
 
   systemd::set_value{"${path}-unit-limitsigpending":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitSIGPENDING',
     value   => $exec_limitsigpending
   }
 
   systemd::set_value{"${path}-unit-limitstack":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'LimitSTACK',
     value   => $exec_limitstack
   }
 
   systemd::set_value{"${path}-unit-mountflags":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'MountFlags',
     value   => $exec_mountflags
   }
 
   systemd::set_value{"${path}-unit-nice":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'Nice',
     value   => $exec_nice
   }
 
   systemd::set_value{"${path}-unit-nonewprivileges":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'NoNewPrivileges',
     value   => $exec_nonewprivileges
   }
 
   systemd::set_value{"${path}-unit-oomscoreadjust":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'OOMScoreAdjust',
     value   => $exec_oomscoreadjust
   }
 
   systemd::set_value{"${path}-unit-pamname":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'PAMName',
     value   => $exec_pamname
   }
 
   systemd::set_value{"${path}-unit-privatenetwork":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'PrivateNetwork',
     value   => $exec_privatenetwork
   }
 
   systemd::set_value{"${path}-unit-privatetmp":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'PrivateTmp',
     value   => $exec_privatetmp
   }
 
   systemd::set_value{"${path}-unit-readonlydirectories":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'ReadOnlyDirectories',
     value   => $exec_readonlydirectories
   }
 
   systemd::set_value{"${path}-unit-readwritedirectories":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'ReadWriteDirectories',
     value   => $exec_readwritedirectories
   }
 
   systemd::set_value{"${path}-unit-rootdirectory":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'RootDirectory',
     value   => $exec_rootdirectory
   }
 
   systemd::set_value{"${path}-unit-securebits":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'SecureBits',
     value   => $exec_securebits
   }
 
   systemd::set_value{"${path}-unit-standarderror":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'StandardError',
     value   => $exec_standarderror
   }
 
   systemd::set_value{"${path}-unit-standardinput":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'StandardInput',
     value   => $exec_standardinput
   }
 
   systemd::set_value{"${path}-unit-standardoutput":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'StandardOutput',
     value   => $exec_standardoutput
   }
 
   systemd::set_value{"${path}-unit-supplementarygroups":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'SupplementaryGroups',
     value   => $exec_supplementarygroups
   }
 
   systemd::set_value{"${path}-unit-syslogfacility":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'SyslogFacility',
     value   => $exec_syslogfacility
   }
 
   systemd::set_value{"${path}-unit-syslogidentifier":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'SyslogIdentifier',
     value   => $exec_syslogidentifier
   }
 
   systemd::set_value{"${path}-unit-sysloglevel":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'SyslogLevel',
     value   => $exec_sysloglevel
   }
 
   systemd::set_value{"${path}-unit-sysloglevelprefix":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'SyslogLevelPrefix',
     value   => $exec_sysloglevelprefix
   }
 
   systemd::set_value{"${path}-unit-systemcallfilter":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'SystemCallFilter',
     value   => $exec_systemcallfilter
   }
 
   systemd::set_value{"${path}-unit-tcpwrapname":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'TCPWrapName',
     value   => $exec_tcpwrapname
   }
 
   systemd::set_value{"${path}-unit-ttypath":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'TTYPath',
     value   => $exec_ttypath
   }
 
   systemd::set_value{"${path}-unit-ttyreset":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'TTYReset',
     value   => $exec_ttyreset
   }
 
   systemd::set_value{"${path}-unit-ttyvhangup":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'TTYVHangup',
     value   => $exec_ttyvhangup
   }
 
   systemd::set_value{"${path}-unit-ttyvtdisallocate":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'TTYVTDisallocate',
     value   => $exec_ttyvtdisallocate
   }
 
   systemd::set_value{"${path}-unit-timerslacknsec":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'TimerSlackNSec',
     value   => $exec_timerslacknsec
   }
 
   systemd::set_value{"${path}-unit-umask":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'UMask',
     value   => $exec_umask
   }
 
   systemd::set_value{"${path}-unit-user":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'User',
     value   => $exec_user
   }
 
   systemd::set_value{"${path}-unit-utmpidentifier":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'UtmpIdentifier',
     value   => $exec_utmpidentifier
   }
 
   systemd::set_value{"${path}-unit-workingdirectory":
     path    => $path,
-    section => $section_label,
+    section => $label,
     setting => 'WorkingDirectory',
     value   => $exec_workingdirectory
   }
+}

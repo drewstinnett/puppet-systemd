@@ -30,10 +30,10 @@ define systemd::service_file(
   }
 
   systemd::set_unit{"${service}-description":
-    path        => $service_file_path,
-    description => $description,
-    wants       => $wants,
-    after       => $after
+    path             => $service_file_path,
+    unit_description => $description,
+    unit_wants       => $wants,
+    unit_after       => $after
   }
 
   systemd::set_exec{"${service}-exec":
